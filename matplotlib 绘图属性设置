@@ -1,0 +1,25 @@
+# print(ls_data)
+# plt.plot()实际上会通过plt.gca()获得当前的Axes对象ax，然后再调用ax.plot()方法实现真正的绘图。
+# plt.gca()获取当前Axes，plt.gcf()，获取当前Figure
+# print(dir(plt.gca()))#很多属性设置都包含在plt.gca()中，如'set_label'，'set_xlim'，'xaxis'等，一般用法先利用plt.gca()获取句柄，再进行属性设置精化图形绘制
+# print(plt.gcf())  # plt.gcf()获取的和plt.figure()创建的类型相同
+ax=plt.gca()
+ax.legend()#设置图例，等价与plt.legend()
+#plt.rcParams #设置全局
+plt.rcParams['xtick.direction'] = 'in'  # 将x周的刻度线方向设置向内
+plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内
+ax.set_xlabel('Date')
+ax.set_ylabel('Accumulated subsidence : mm')
+ax.set_title(self.plot_title)#等价于plt.title()
+ax.plot(x,y,color=(r,g,b),marker='o',linewidth=1,markersize=1.5,markerfacecolor='white',)# 注意如果令markerfacecolor='none'，那线就会穿过圆
+markeredgecolor # 圆边缘的颜色
+markeredgewidth # 圆的线宽
+ax.spines['top'].set_visible(False) #去掉上边框
+ax.spines['right'].set_visible(False) #去掉右边框
+plt.xlim((2.5, 6.5))#设置x坐标轴的范围
+plt.ylim((-2, 2))#设置y坐标轴的范围
+plt.legend(frameon=False,edgecolor='black',fancybox)#控制是否应在图例周围绘制框架，框架颜色，框架是否圆角
+# plt.minorticks_on()#显示次刻度线
+# plt.tick_params(which='minor',direction='in')#设置次刻度线朝向，in，out，inout
+plt.tick_params(direction='in')  # 设置主坐标轴刻度线朝向，major,minor,both表示主刻度线，次刻度线和都选择
+plt.tick_params(top=True, bottom=True, left=True, right=True)  # 在哪些轴显示刻度线
